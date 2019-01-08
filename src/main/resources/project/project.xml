@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exportedData version="39" buildLabel="" buildVersion="3.5.0.0">
+  <exportPath>/projects/@PLUGIN_KEY@-@PLUGIN_VERSION@</exportPath>
+  <project>
+    <projectName>@PLUGIN_KEY@-@PLUGIN_VERSION@</projectName>
+    <propertySheet>
+
+      <property>
+        <propertyName>scripts</propertyName>
+        <description></description>
+        <propertySheet>
+          <property>
+            <propertyName>purifyDriver</propertyName>
+            <description></description>
+            <expandable>1</expandable>
+            <value></value>
+          </property>
+        </propertySheet>
+      </property>
+      
+      <property>
+        <propertyName>ec_setup</propertyName>
+        <value></value>
+        <expandable>0</expandable>
+      </property>
+      
+      <property>
+        <propertyName>postp_matchers</propertyName>
+        <value></value>
+        <expandable>0</expandable>
+      </property>
+      
+      <property>
+        <propertyName>ec_visibility</propertyName>
+        <description></description>
+        <expandable>1</expandable>
+        <value>pickListOnly</value>
+      </property>        
+      
+	</propertySheet>
+
+    <procedure>
+      <procedureName>runPurify</procedureName>
+      <description>Executes Purify</description>
+      <jobNameTemplate></jobNameTemplate>
+      <resourceName></resourceName>
+      <workspaceName></workspaceName>
+      <projectName>EC-Purify</projectName>
+      <propertySheet>
+	  <property>
+			<propertyName>ec_parameterForm</propertyName>    
+			<expandable>1</expandable>
+			<value></value>
+		</property>
+        <property>
+          <propertyName>ec_customEditorData</propertyName>
+          <propertySheet>
+            <property>
+              <propertyName>parameters</propertyName>
+              
+              <propertySheet>
+              
+              	<property>
+                  <propertyName>workingdirectory</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                
+                <property>
+                  <propertyName>resultname</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>                
+                
+                <property>
+                  <propertyName>purifypath</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                
+                <property>
+                  <propertyName>target</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>                
+                
+                
+                <property>
+                  <propertyName>additionalcommands</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                
+                <property>
+                  <propertyName>sourcepath</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                
+                <property>
+                  <propertyName>resultfile</propertyName>
+                  <propertySheet>
+                    
+                    <property>
+                      <propertyName>options</propertyName>
+                      <propertySheet>
+                        <property>
+                          <propertyName>option1</propertyName>
+                          <propertySheet>
+                            <property>
+                              <propertyName>text</propertyName>
+                              <expandable>1</expandable>
+                              <value>Text</value>
+                            </property>
+                            <property>
+                              <propertyName>value</propertyName>
+                              <expandable>1</expandable>
+                              <value>text</value>
+                            </property>
+                          </propertySheet>
+                        </property>
+                        
+                        <property>
+                          <propertyName>option2</propertyName>
+                          
+                          <propertySheet>
+                            
+                            <property>
+                              <propertyName>text</propertyName>                              
+                              <value>Purify File</value>
+                            </property>
+                            
+                            <property>
+                              <propertyName>value</propertyName>
+                              <owner>admin</owner>
+                              <value>pfy</value>
+                            </property>
+                            
+                          </propertySheet>
+                        </property>
+                        
+                       <property>
+                          <propertyName>optionCount</propertyName>
+                          <expandable>1</expandable>
+                          <value>3</value>
+                        </property>
+                        
+                        <property>
+                          <propertyName>type</propertyName>
+                          <expandable>1</expandable>
+                          <value>list</value>
+                        </property> 
+                        
+                        </propertySheet>
+                        </property>
+                    </propertySheet>
+                </property>                
+                
+                <property>
+                    
+                  <propertyName>automerge</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>1</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                  </propertySheet>
+                </property>
+		
+                <property>
+                    
+                  <propertyName>runcoverage</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>1</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                
+                <property>
+                    
+                  <propertyName>dotnet</propertyName>
+                  <propertySheet>
+                    <property>
+                      <propertyName>checkedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>1</value>
+                    </property>
+                    <property>
+                      <propertyName>formType</propertyName>
+                      <expandable>1</expandable>
+                      <value>standard</value>
+                    </property>
+                    <property>
+                      <propertyName>initiallyChecked</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                    <property>
+                      <propertyName>uncheckedValue</propertyName>
+                      <expandable>1</expandable>
+                      <value>0</value>
+                    </property>
+                  </propertySheet>
+                </property>
+                
+                
+              </propertySheet>
+              
+            </property>
+          </propertySheet>
+        </property>
+      </propertySheet>
+      
+      <formalParameter>
+        <formalParameterName>workingdirectory</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>Working directory</description>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+
+      
+      <formalParameter>
+        <formalParameterName>resultfile</formalParameterName>
+        <description>Indicates the kind of archive on which the log will be saved.</description>
+        <required>0</required>
+        <type>select</type>
+      </formalParameter>      
+
+      <formalParameter>
+        <formalParameterName>target</formalParameterName>
+        <description>Absolute path of the element to analyze</description>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+      
+      <formalParameter>
+        <formalParameterName>automerge</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>Enable auto-merge data mode.</description>
+        <required>0</required>
+        <type>checkbox</type>
+      </formalParameter>
+      
+      <formalParameter>
+        <formalParameterName>dotnet</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>Analysis will run a .NET managed application.</description>
+        <required>0</required>
+        <type>checkbox</type>
+      </formalParameter>
+      
+      <formalParameter>
+        <formalParameterName>runcoverage</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>Runs Coverage tasks after running Purify.</description>
+        <required>0</required>
+        <type>checkbox</type>
+      </formalParameter>      
+      
+      <formalParameter>
+        <formalParameterName>purifypath</formalParameterName>
+        <description>Absolute path of Purify executable. Default value assumes Purify is loaded in the system path. Absolute path must not contain spaces.</description>
+        <defaultValue>Purify</defaultValue>
+        <required>1</required>
+        <type>entry</type>
+      </formalParameter>
+      
+      <formalParameter>
+        <formalParameterName>sourcepath</formalParameterName>
+        <description></description>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>
+      
+      <formalParameter>
+        <formalParameterName>resultname</formalParameterName>
+        <description>Filename of the result log</description>
+        <required>0</required>
+        <type>entry</type>
+      </formalParameter>       
+      
+      <formalParameter>
+        <formalParameterName>additionalcommands</formalParameterName>
+        <defaultValue></defaultValue>
+        <description>Additional commands to be entered</description>
+        <required>0</required>
+        <type>textarea</type>
+      </formalParameter>
+      
+      <step>
+        <stepName>createCommandLine</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/projects/$[/plugins/EC-Purify/projectName]/scripts/purifyDriver];</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusive>0</exclusive>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor>postp</postProcessor>
+        <releaseExclusive>0</releaseExclusive>
+        <resourceName></resourceName>
+        <retries>0</retries>
+        <shell>ec-perl</shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory></workingDirectory>
+        <workspaceName></workspaceName>
+        <procedureName>runPurify</procedureName>
+        <projectName>EC-Purify</projectName>
+        <propertySheet>
+          <property>
+            <propertyName>ec_customEditorData</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>formType</propertyName>
+                <expandable>1</expandable>
+                <value>command</value>
+              </property>
+            </propertySheet>
+          </property>
+        </propertySheet>
+      </step>
+      
+      <step>
+        <stepName>runCommandLine</stepName>
+        <alwaysRun>0</alwaysRun>
+        <broadcast>0</broadcast>
+        <command>$[/myCall/commandLine]</command>
+        <condition></condition>
+        <description></description>
+        <errorHandling>failProcedure</errorHandling>
+        <exclusive>0</exclusive>
+        <logFileName></logFileName>
+        <parallel>0</parallel>
+        <postProcessor>postp</postProcessor>
+        <releaseExclusive>0</releaseExclusive>
+        <resourceName></resourceName>
+        <retries>0</retries>
+        <shell></shell>
+        <timeLimit></timeLimit>
+        <timeLimitUnits>minutes</timeLimitUnits>
+        <workingDirectory>$[workingdirectory]</workingDirectory>
+        <workspaceName></workspaceName>
+        <procedureName>runPurify</procedureName>
+        <projectName>EC-Purify</projectName>
+        <propertySheet>
+          <property>
+            <propertyName>ec_customEditorData</propertyName>
+            <propertySheet>
+              <property>
+                <propertyName>formType</propertyName>
+                <expandable>1</expandable>
+                <value>command</value>
+              </property>
+            </propertySheet>
+          </property>
+        </propertySheet>
+      </step>
+    </procedure>
+  </project>
+</exportedData>

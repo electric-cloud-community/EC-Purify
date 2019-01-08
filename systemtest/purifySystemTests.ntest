@@ -1,0 +1,282 @@
+# -*-Perl-*-
+
+# purifySystemTests.ntest -
+#
+# ECPurify
+#
+# Copyright (c) 2005-2010 Electric Cloud, Inc.
+# All rights reserved
+
+use strict;
+use warnings;
+use ECTest;
+use ECSelenium;
+
+ 
+# system tests
+
+
+require "$::gTestFileDir/purify-common.ntest";
+
+$::gProjectImported = 0;
+$::gtestProjectName = 'PurifyTestProject';
+
+my $outcome = '';
+
+########################################################################
+# importProject - imports the test project and asserts that the specified
+#                 procedures exists
+#
+# Arguments:
+#   -none
+#
+# Returns:
+#   -nothing
+#
+########################################################################
+sub importProject() {
+ 
+    #assert project exists and is imported
+    assertOK($::N->import(
+             { file =>"$::gTestFileDir/purifySystemTests.xml",
+               path  => "/projects/PurifyTestProject",
+               force => 1
+             } ), 'import runCommandLine');
+   
+   #assert all given procedures exist
+   
+    assertOK($::N->getProcedure($::gtestProjectName, 'executePurifyWithAllOptions'),
+    'executePurifyWithAllOptions procedure doesn\'t exist');
+    
+    assertOK($::N->getProcedure($::gtestProjectName, 'executePurifyWithDefaultResultFile'),
+    'executePurifyWithDefaultResultFile procedure doesn\'t exist');
+    
+    assertOK($::N->getProcedure($::gtestProjectName, 'executePurifyWithRequiredOptions'),
+    'executePurifyWithRequiredOptions procedure doesn\'t exist'); 
+
+    assertOK($::N->getProcedure($::gtestProjectName, 'executePurifyWithResultDatafile'),
+    'executePurifyWithResultDatafile procedure doesn\'t exist'); 
+    
+    $::gProjectImported = 1;
+}
+
+########################################################################
+# doSetup - invokes the project import method in case it hasn't been 
+#           executed
+#
+# Arguments:
+#   -none
+#
+# Returns:
+#   -nothing
+#
+########################################################################
+sub doSetup() {
+
+    if(! $::gProjectImported) {
+        importProject();
+    }
+    
+    
+}
+
+ntest "executePurifyWithAllOptions", {}, sub {
+      
+      doSetup();
+      
+      # run test job
+     
+      my $xpath = $::N->runProcedure($::gtestProjectName, 
+              {procedureName => "executePurifyWithAllOptions",
+              pollInterval  => '1',
+              timeout => 600,
+                   actualParameter => [
+                  
+                  ]
+      });
+          
+       
+      # make sure it finished
+      my $jobId = 0;
+      my $status = '';
+      
+      assertOK($xpath, 'runProcedure has errors');
+      if ($xpath) {
+          $jobId  = $xpath->findvalue("//jobId");
+          $status = $xpath->findvalue("//status");
+          $outcome = $xpath->findvalue("//outcome");
+  
+          assertTrue($jobId && $jobId ne "",'valid job id');
+          assertEq('completed',$status,"job $jobId complete");
+  
+          #abort if job did not finish
+          if ($status ne 'completed') {
+              assertOK($::N->abortJob($jobId, {force => 1}));
+          }
+      }
+
+      # get the job details
+      $xpath = $::N->getJobDetails($jobId);
+   
+      # get the value of the commands lines
+      my $commandLine = $xpath->findvalue("//property[propertyName='commandLine']/value");
+      my $workingDir = $xpath->findvalue("//property[propertyName='workingdirectory']/value");
+
+      assertEq($commandLine, 'Purify -run=no -AutoMergeData=yes -SaveTextData="result.txt" -SourcePath="c:\MyDocs\source" -net "e:\myTestProgram"', 
+           'command line doesn\'t match expected output');
+           
+           
+      assertEq($workingDir, 'myworkingdir', 
+           'working directory doesn\'t match expected output');
+
+  };
+  
+ntest "executePurifyWithDefaultResultFile", {}, sub {
+      
+      doSetup();
+      
+      # run test job
+     
+      my $xpath = $::N->runProcedure($::gtestProjectName, 
+              {procedureName => "executePurifyWithDefaultResultFile",
+              pollInterval  => '1',
+              timeout => 600,
+                   actualParameter => [
+                  
+                  ]
+      });
+          
+       
+      # make sure it finished
+      my $jobId = 0;
+      my $status = '';
+      
+      assertOK($xpath, 'runProcedure has errors');
+      if ($xpath) {
+          $jobId  = $xpath->findvalue("//jobId");
+          $status = $xpath->findvalue("//status");
+          $outcome = $xpath->findvalue("//outcome");
+  
+          assertTrue($jobId && $jobId ne "",'valid job id');
+          assertEq('completed',$status,"job $jobId complete");
+  
+          #abort if job did not finish
+          if ($status ne 'completed') {
+              assertOK($::N->abortJob($jobId, {force => 1}));
+          }
+      }
+
+      # get the job details
+      $xpath = $::N->getJobDetails($jobId);
+   
+      # get the value of the commands lines
+      my $commandLine = $xpath->findvalue("//property[propertyName='commandLine']/value");
+  my $workingDir = $xpath->findvalue("//property[propertyName='workingdirectory']/value");
+
+      assertEq($commandLine, 'Purify -AutoMergeData=no -Coverage "e:\mypurifyprogram.exe"', 
+           ' command line doesn\'t match expected output');
+   
+assertEq($workingDir, 'C:\Program Files\IBM\RationalPurifyPlus\Common\release\purify\Setup\program files\Rational\Common', 
+           'working directory doesn\'t match expected output');
+
+  };
+  
+  ntest "executePurifyWithRequiredOptions", {}, sub {
+      
+      doSetup();
+      
+      # run test job
+     
+      my $xpath = $::N->runProcedure($::gtestProjectName, 
+              {procedureName => "executePurifyWithRequiredOptions",
+              pollInterval  => '1',
+              timeout => 600,
+                   actualParameter => [
+                  
+                  ]
+      });
+          
+       
+      # make sure it finished
+      my $jobId = 0;
+      my $status = '';
+      
+      assertOK($xpath, 'runProcedure has errors');
+      if ($xpath) {
+          $jobId  = $xpath->findvalue("//jobId");
+          $status = $xpath->findvalue("//status");
+          $outcome = $xpath->findvalue("//outcome");
+  
+          assertTrue($jobId && $jobId ne "",'valid job id');
+          assertEq('completed',$status,"job $jobId complete");
+  
+          #abort if job did not finish
+          if ($status ne 'completed') {
+              assertOK($::N->abortJob($jobId, {force => 1}));
+          }
+      }
+
+      # get the job details
+      $xpath = $::N->getJobDetails($jobId);
+   
+      # get the value of the command line
+      my $commandLine = $xpath->findvalue("//property[propertyName='commandLine']/value");
+  my $workingDir = $xpath->findvalue("//property[propertyName='workingdirectory']/value");
+
+      assertEq($commandLine, 'Purify -AutoMergeData=no "e:/myTestProgram.exe"', 
+           ' command line doesn\'t match expected output');
+   
+assertEq($workingDir, 'C:\Program Files\IBM\RationalPurifyPlus\Common\release\purify\Setup\program files\Rational\Common', 
+           'working directory doesn\'t match expected output');
+
+  };
+  
+  ntest "executePurifyWithResultDatafile", {}, sub {
+      
+      doSetup();
+      
+      # run test job
+     
+      my $xpath = $::N->runProcedure($::gtestProjectName, 
+              {procedureName => "executePurifyWithResultDatafile",
+              pollInterval  => '1',
+              timeout => 600,
+                   actualParameter => [
+                  
+                  ]
+      });
+          
+       
+      # make sure it finished
+      my $jobId = 0;
+      my $status = '';
+      
+     assertOK($xpath, 'runProcedure has errors');
+      if ($xpath) {
+          $jobId  = $xpath->findvalue("//jobId");
+          $status = $xpath->findvalue("//status");
+          $outcome = $xpath->findvalue("//outcome");
+  
+          assertTrue($jobId && $jobId ne "",'valid job id');
+          assertEq('completed',$status,"job $jobId complete");
+  
+          #abort if job did not finish
+          if ($status ne 'completed') {
+              assertOK($::N->abortJob($jobId, {force => 1}));
+          }
+      }
+
+      # get the job details
+      $xpath = $::N->getJobDetails($jobId);
+   
+      # get the value of the command line
+      my $commandLine = $xpath->findvalue("//property[propertyName='commandLine']/value");
+  my $workingDir = $xpath->findvalue("//property[propertyName='workingdirectory']/value");
+
+      assertEq($commandLine, 'Purify -AutoMergeData=no -SaveData="myresultdatafile.pfy" "c:\mydir1\mydir2\target.exe"', 
+           ' command line doesn\'t match expected output');
+
+   assertEq($workingDir, 'C:\Program Files\IBM\RationalPurifyPlus\Common', 
+           'working directory doesn\'t match expected output');
+
+  };

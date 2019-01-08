@@ -1,0 +1,96 @@
+    <editor>
+   		
+		<help>/commander/pages/@PLUGIN_NAME@/@PLUGIN_KEY@_help?s=Administration&amp;ss=Plugins#runPurify
+		</help> 
+
+        <formElement>
+            <type>entry</type>
+            <label>Rational Purify executable path</label>
+            <property>purifypath</property>
+            <value>Purify</value>
+            <required>1</required>
+            <documentation>Provide the absolute path to the Purify executable. Default value assumes Purify.exe is loaded in the system path. The absolute path cannot contain spaces.</documentation>
+        </formElement>
+        
+        <formElement>
+            <type>entry</type>
+            <label>Target to analyze</label>
+            <property>target</property>
+            <required>1</required>
+            <documentation>Provide the absolute path of the element to analyze.Use a test application that can run and stop its execution in order to record the results</documentation>
+        </formElement>
+		
+		<formElement>
+            <type>entry</type>
+            <label>Working Directory</label>
+            <property>workingdirectory</property>
+            <required>1</required>
+            <value></value>
+            <documentation>Provide the desired working directory. Leave this field blank to use the default workspace.</documentation>
+        </formElement>
+		
+		<formElement>
+            <type>entry</type>
+            <label>Result filename</label>
+            <property>resultname</property>
+            <required>0</required>
+            <documentation>Provide the filename of the resulting log file.(This is the command-line '-SaveTextData=' option)</documentation>
+        </formElement>
+
+		<formElement>
+            <type>select</type>
+            <label>Result file type</label>
+            <property>resultfile</property>
+            <required>0</required>
+            <documentation>Select the type of file for the log. Use the Text option to generate a txt file and pfy optio for a Purify type.(This is the command-line '-SaveData=' option)</documentation>
+            <option><name>Text</name><value>text</value></option>
+            <option><name>Purify File</name><value>pfy</value></option>
+        </formElement>
+		
+		<formElement>
+            <type>entry</type>
+            <label>Source path</label>
+            <property>sourcepath</property>
+            <required>0</required>
+            <documentation>Specify the search path to use to locate source files to display in your default editor or in the Purify viewer window.(This is the command-line '-SourcePath=' option)</documentation>
+        </formElement>		
+        
+        <formElement>
+            <type>checkbox</type>
+            <label>.NET Managed Application</label>
+            <property>dotnet</property>
+            <checkedValue>1</checkedValue>
+            <uncheckedValue>0</uncheckedValue>
+            <required>0</required>
+            <documentation>Indicates the analysis will run a .NET managed application. It's not compatible with Run Coverage option(It can't be used both options).(This is the command-line '-net' option)</documentation>
+        </formElement>
+        
+        <formElement>
+            <type>checkbox</type>
+            <label>Auto-Merge Data</label>
+            <property>automerge</property>
+            <checkedValue>1</checkedValue>
+            <uncheckedValue>0</uncheckedValue>
+            <required>0</required>
+            <documentation>If checked, this enables the auto-merge data mode.(This is the command-line '-AutoMergeData=yes/no:' option)</documentation>
+        </formElement>
+        
+        <formElement>
+            <type>checkbox</type>
+            <label>Run Coverage</label>
+            <property>runcoverage</property>
+            <checkedValue>1</checkedValue>
+            <uncheckedValue>0</uncheckedValue>
+            <required>0</required>
+            <documentation>Runs Coverage tasks after running Purify.It's not compatible with .NET Managed Application option(It can't be used both options).(This is the command-line '-Coverage' option)</documentation>
+        </formElement>
+        
+        <formElement>
+            <type>textarea</type>
+            <label>Additional Commands</label>
+            <property>additionalcommands</property>
+            <required>0</required>
+            <documentation>Provide any additional commands to be execute for Purify.</documentation>
+        </formElement>
+
+    </editor>

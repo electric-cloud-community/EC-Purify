@@ -1,0 +1,14 @@
+<project name="EC-Purify" default="package" basedir=".">
+	<description>
+        Build the EC-Purify plugin
+    </description>
+
+    <property name="buildconfigdir" value="../Plugin-In-A-Box/scripts" />
+    
+	<!-- plugin specific properties -->
+	<property name="pluginKey" value="EC-Purify" />
+	<property name="pluginVersion" value="1.0" />
+	<property name="gwtModules" value=""/>
+
+    <import file="${buildconfigdir}/buildTargets.xml"/>
+</project>
