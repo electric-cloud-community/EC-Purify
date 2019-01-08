@@ -1,0 +1,15 @@
+<?xml version='1.0' standalone='yes'?>
+<fileset>
+  <file>
+    <path>purifyDriver.pl</path>
+    <xpath>//property[propertyName=&quot;purifyDriver&quot;]/value</xpath>
+  </file>
+  <file>
+    <path>ec_setup.pl</path>
+    <xpath>//property[propertyName=&quot;ec_setup&quot;]/value</xpath>
+  </file>
+  <file>
+    <path>runPurifyForm.xml</path>
+    <xpath>//procedure[procedureName=&quot;runPurify&quot;]/propertySheet/property[propertyName=&quot;ec_parameterForm&quot;]/value</xpath>
+  </file>
+</fileset>
